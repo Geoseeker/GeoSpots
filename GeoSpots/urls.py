@@ -15,7 +15,27 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from GeoApp.views import (AddGeospotView,
+                          AddCollectionView,
+                           BaseView,
+                           CollectionView,
+                           GeoSpotsView,
+                           GeoSpotView,
+                           MyCollectionView,
+                           RegisterUserView,
+                           UserLoginView, 
+                           UserLogoutView)
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-]
+     url(r'^admin/', admin.site.urls),
+     url(r'^geoapp$', BaseView.as_view(), name = 'base'),
+     url(r'^geoapp/geospots$', GeoSpotsView.as_view(), name = 'geospots'),
+     url(r'^geoapp/add_geospot$', AddGeospotView.as_view(), name = 'add-geospot'),
+     url(r'^geoapp/geospots/(?P<id>(\d)+)', GeoSpotView.as_view(), name = 'geospot'),
+     url(r'^geoapp/collection$', CollectionView.as_view(), name= 'collection'),
+     url(r'^geoapp/mycollection/(?P<id>(\d)+)', MyCollectionView.as_view(), name = 'my-collection'),
+     url(r'^geoapp/add_colection/(?P<id>(\d)+)', AddCollectionView.as_view(), name='add-collection'),
+     url(r'^register/', RegisterUserView.as_view(), name = 'register'),
+     url(r'^login', UserLoginView.as_view(), name = 'login'),
+     url(r'^logout', UserLogoutView.as_view(), name = 'logout'),
+     ]

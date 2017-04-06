@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Lista GeoStanowisk:</h1>
+	<ol>
+	{% for spot in spots %}
+	<li>Nazwa: <a href="{% url 'geospot' spot.id %}">{{spot.name}}</a><br>Lokalizacja: 
+	<a href="http://maps.google.com/maps?q={{spot.latitude}},{{spot.longitude}}" target='a_blank'>
+	N {{spot.latitude}} E {{spot.longitude}}</a> 
+	---Sprawdź na Google Maps
+	Dodane przez: {{spot.added_by}}</li>
+	{% empty %}
+	   brak
+	{% endfor %}
+	</ol>
+<br>
+<a href="{% url 'add-geospot' %}"><input type="submit" value="Dodaj nowe miejsce" /></a>
+<br>
+<a href="{% url 'base' %}"><input type="submit" value="Strona Główna" /></a>
+{% endblock %}

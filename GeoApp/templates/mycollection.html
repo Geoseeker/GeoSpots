@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Moja Kolekcja</h1>
+	<ul>
+		<li>Nazwa:{{collection.name}}</li>
+	</ul>
+<a href="{% url 'add-collection' id=user.id %}"><input type="submit" value='Dodaj do kolekcji'></a>
+{% endblock %}

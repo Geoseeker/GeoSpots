@@ -1,3 +1,16 @@
 from django.contrib import admin
+from .models import GeoSpots, Collection
+ 
+# admin.site.register(Collection)
+# admin.site.register(GeoSpots)
 
-# Register your models here.
+  
+@admin.register(Collection)
+class CollectionAdmin(admin.ModelAdmin):
+       list_display = ['name', 'description']
+  
+@admin.register(GeoSpots)
+class GeoSpotsAdmin(admin.ModelAdmin):
+      list_display = ['name', 'description', 'location', 'added_by']
+      
+      

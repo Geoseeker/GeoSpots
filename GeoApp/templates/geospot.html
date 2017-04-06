@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>GeoStanowisko:</h1>
+<table border='1'>
+  <tr>
+    <th>Dane</th>
+    <th>Opis</th>
+  </tr>
+  <tr>
+    <td>Nazwa</td>
+    <td>{{geospot.name}}</td>
+  </tr>
+   <tr>
+    <td>Opis</td>
+    <td>{{geospot.description}}</td>
+  </tr>
+   <tr>
+    <td>Lokalizacja</td>
+    <td>{{geospot.location}}</td>
+  </tr>
+   <tr>
+    <td>Województwo</td>
+    <td>{{geospot.get_voivodeship_display}}</td>
+  </tr>
+   <tr>
+    <td>N</td>
+    <td>{{geospot.latitude}}</td>
+  </tr> 
+  <tr>
+    <td>E</td>
+    <td>{{geospot.longitude}}</td>
+  </tr>
+    <tr>
+    <td>Dodane:</td>
+    <td>{{geospot.added_by}}</td>
+  </tr>
+</table>
+{% endblock %}

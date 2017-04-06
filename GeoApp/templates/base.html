@@ -1,0 +1,127 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <title>GeoSpots</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+        crossorigin="anonymous">
+    	
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+    	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
+    	crossorigin="anonymous"></script>
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    </head>
+    <body>
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<nav class="navbar navbar-default navbar-inverse" role="navigation">
+				<div class="navbar-header">
+					 
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						 <span class="sr-only">Toggle navigation</span>
+						 <span class="icon-bar"></span>
+						 <span class="icon-bar"></span>
+						 <span class="icon-bar"></span>
+					</button> <a class="navbar-brand" href="{% url 'base' %}">Home Page</a>
+				</div>
+				
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="{% url 'geospots' %}">GeoStanowiska</a>
+						</li>
+						<li>
+							<a href="{% url 'collection' %}">Kolekcja</a>
+						</li>
+
+					</ul>
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control">
+						</div> 
+						<button type="submit" class="btn btn-default">
+							Szukaj
+						</button>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#">Zarejestruj</a>
+						</li>
+						<li>
+							<a href="#">Zaloguj</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+
+	<div>
+    <h1>Odkrywaj GeoStanowiska w Polsce!</h1>
+	<img src="{% static 'geoview.jpg' %}" width = 700px align="middle"/>
+	</div>
+    	
+    	{% block content %}
+        {% endblock %}
+        
+     
+     {% if user.is_authenticated %}
+     	<div align="right">
+        <strong> Zalogowany: </strong> {{user}}
+        <a href="{% url 'logout' %}"><input type='submit' value='Wyloguj' /></a>
+        </div>
+        {% else %}
+        <a href="{% url 'login' %}"><input type='submit' value='Zaloguj' /></a>
+        <a href="{% url 'register' %}"><input type="submit" value="Zarejestruj" /></a>
+        {% endif %}
+
+</div>
+	<script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+        
+    </body>
+</html>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
