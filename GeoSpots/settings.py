@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'GeoApp'
+    'GeoApp',
+    'mapwidgets'
+    
 ]
 
 MIDDLEWARE = [
@@ -122,6 +124,13 @@ USE_L10N = True
 USE_TZ = False
 
 
+MAP_WIDGETS = {
+"GooglePointFieldWidget": (
+("zoom", 15),
+("mapCenterLocation", [52.194990, 21.054322]),
+),
+"GOOGLE_MAP_API_KEY": "AIzaSyAtsLK68QWXli9IFPQfX0uqMbFYA0qozX0"
+}
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 

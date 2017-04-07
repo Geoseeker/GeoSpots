@@ -3,6 +3,7 @@ from django.contrib.gis import forms
 from GeoApp.models import User, VOIVODESHIP, Collection, GeoSpots
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate
+from mapwidgets.widgets import GooglePointFieldWidget
   
 users = User.objects.all()
 #.values_list('first_name','last_name').order_by('last_name')
@@ -10,7 +11,8 @@ users = User.objects.all()
 class AddGeoSpotForm(forms.Form):
     name = forms.CharField(label = 'nazwa stanowiska', max_length = 64, required=True)
     description = forms.CharField(label = 'opis stanowiska',widget=forms.Textarea, required=True)
-    location = forms.CharField(label = 'lokalizacja', max_length = 64, required=True)
+#     location = forms.CharField(label = 'lokalizacja', max_length = 64, required=True)
+    location = forms.CharField(widget=GooglePointFieldWidget)
     voivodeship = forms.ChoiceField(label = 'Województwo', choices = VOIVODESHIP)
     latitude = forms.DecimalField(label = 'N',max_digits = 8, decimal_places = 6, initial = '52.330204', required = True)
     longitude = forms.DecimalField(label = 'E',max_digits = 8, decimal_places = 6, initial = '19.974818', required = True)
