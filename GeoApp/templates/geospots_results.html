@@ -1,0 +1,11 @@
+{% extends 'geo_search.html' %}
+{% block results %}
+<h2>Wyniki wyszukiwania:</h2>
+	<ol>
+	{% for geospot in results %}
+		<li><a href="{% url 'geospot' id=geospot.id %}">{{ geospot.name }}</a></li>
+	{% empty %}
+		pusto
+	{% endfor %}
+	</ol>
+{% endblock %}

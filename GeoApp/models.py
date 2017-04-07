@@ -24,14 +24,7 @@ VOIVODESHIP = (
 )
 
 
-class Collection(models.Model):    
-    name = models.CharField(max_length = 64)
-    description = models.TextField()
-    user_collection = models.OneToOneField(User)
-    picture = models.ImageField(upload_to='/static/', blank=True)
-    
-    def get_absolute_url(self):
-        return reverse('base')
+
 
 
 class GeoSpots(models.Model):
@@ -44,12 +37,57 @@ class GeoSpots(models.Model):
     added_by = models.ForeignKey(User)
 
     def get_absolute_url(self):
-        return reverse('geospots')
+        return reverse('geospot', kwargs={'id': self.id})
+    
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name = 'Geostanowisko'  
         verbose_name_plural = 'Geostanowiska'  
 
+class Collection(models.Model):    
+    name = models.CharField(max_length = 64)
+    description = models.TextField()
+    location = models.ForeignKey(GeoSpots,null = True, blank = True)
+    user_collection = models.ForeignKey(User, on_delete=models.CASCADE, null = True, blank=True)
+    picture = models.ImageField(upload_to='GeoApp/static/', blank=True)
+    
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse('base')
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
+    
 # url do formatowania 
 # http://maps.google.com/maps?q=24.197611,120.780512
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

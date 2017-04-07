@@ -2,7 +2,7 @@
 {% block content %}
 
 <h1>GeoStanowisko:</h1>
-<table border='1'>
+<table border='1' width='600'>
   <tr>
     <th>Dane</th>
     <th>Opis</th>
@@ -32,8 +32,10 @@
     <td>{{geospot.longitude}}</td>
   </tr>
     <tr>
-    <td>Dodane:</td>
+    <td>Dodane przez:</td>
     <td>{{geospot.added_by}}</td>
   </tr>
 </table>
+<a href="{% url 'update-geospot' pk=geospot.id %}"><input type='submit' value='zaktualizuj'></a>
+<a href="{% url 'geospots' %}"><input type="submit" value="GeoStanowiska" /></a>
 {% endblock %}

@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
+{% if user.is_authenticated %}	
 <h1>Kolekcja minerałów i skamieniałości w serwisie</h1>
-	<ul>
-	{% for item in collection %}
-		<li>Nazwa:{{item.name}}</li>
-	{% empty %}
-	   brak
-	{% endfor %}
-	</ul>
-	
-<a href="{% url 'my-collection' id=user.id %}"><input type="submit" value='Zobacz swoją kolekcję'></a>
+<ul>
+{% for item in collection %}
+	<li>Nazwa:<a href="{% url 'detail-collection' id=item.id %}">{{item.name}}</a>
+	<a href="{% url 'update-collection' pk=item.id %}"><input type="submit" value="modyfikuj" /></a></li>
+{% empty %}
+   brak
+{% endfor %}
+</ul>
+
+<a href="{% url 'my-collection' %}"><input type="submit" value='Zobacz swoją kolekcję'></a>
+{% else %}
+ Zaloguj się lub zarejestruj<br>
+{% endif %}
 {% endblock %}
