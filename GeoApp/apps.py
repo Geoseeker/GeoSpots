@@ -1,5 +1,5 @@
-from django.apps import AppConfig
-
-
-class GeoappConfig(AppConfig):
-    name = 'GeoApp'
+# from django.apps import AppConfig
+# 
+# 
+# class GeoappConfig(AppConfig):
+#     name = 'GeoApp'

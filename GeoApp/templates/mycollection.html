@@ -1,16 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Moja Kolekcja</h1>
-{{user }} to ja {{collection}} ddeded
-
 	<ul>
 	{% for item in collection %}
 		<li>Nazwa:<a href="{% url 'detail-collection' id=item.id %}">{{item.name}}</a></li>
 	{% empty %}
-		pusto
+		Nie masz jeszcze kolekcji
 	{% endfor %}
 <br>
 
 	</ul>
-<a href="{% url 'add-collection' id=user.id %}"><input type="submit" value='Dodaj do kolekcji'></a>
+<a href="{% url 'add-collection' %}"><input type="submit" value='Dodaj do kolekcji'></a>
 {% endblock %}
