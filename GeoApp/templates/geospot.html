@@ -36,6 +36,14 @@
     <td>{{geospot.added_by}}</td>
   </tr>
 </table>
+<br />
+<iframe 
+	width="600"
+  	height="450"
+  	frameborder="0" style="border:0"
+  	src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAtsLK68QWXli9IFPQfX0uqMbFYA0qozX0
+    &q={{geospot.latitude}},{{geospot.longitude}}" allowfullscreen></iframe>
+<br />
 <a href="{% url 'update-geospot' pk=geospot.id %}"><input type='submit' value='zaktualizuj'></a>
 <a href="{% url 'geospots' %}"><input type="submit" value="GeoStanowiska" /></a>
 {% endblock %}
